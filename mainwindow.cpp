@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pushButton_3, &QPushButton::clicked, this, &MainWindow::writeText);
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){if(index == 1) MainWindow::showNotes();});
+
+    ui->verticalLayout_9->setAlignment(Qt::AlignTop);
 }
 
 MainWindow::~MainWindow()
@@ -48,7 +50,7 @@ void MainWindow::switchText(QString fileName) {
 void MainWindow::showNotes() {
     QStringList list = TextManager::getFiles();
 
-    while(auto item = ui->verticalLayout_6->takeAt(0))
+    while(auto item = ui->verticalLayout_9->takeAt(0))
     {
         if(item->widget())
             item->widget()->deleteLater();
@@ -58,7 +60,7 @@ void MainWindow::showNotes() {
     for(int i = 0; i < list.size(); i++)
     {
         auto *button = new QPushButton(list[i], this);
-        ui->verticalLayout_6->addWidget(button);
+        ui->verticalLayout_9->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{switchText(list[i]);});
     }
 }
