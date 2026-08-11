@@ -8,13 +8,13 @@
 TextManager::TextManager() {}
 
 
-void TextManager::WriteInFile(QString text) {
+void TextManager::WriteInFile(QString title, QString text) {
 
     QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir dir;
     dir.mkpath(path);
 
-    QFile f(path +"/text.txt");
+    QFile f(path +"/" + title + ".txt");
 
     bool isOpen = f.open(QIODevice::WriteOnly);
 

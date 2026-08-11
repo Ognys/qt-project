@@ -30,7 +30,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::writeText() {
-    TextManager::WriteInFile(ui->plainTextEdit->toPlainText());
+    TextManager::WriteInFile(ui->setTitleNote->text(),ui->plainTextEdit->toPlainText());
 }
 
 void MainWindow::switchText(QString fileName) {

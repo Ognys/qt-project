@@ -12,6 +12,12 @@ qt_add_executable(qt-project
     mainwindow.h
     mainwindow.ui
     textmanager.h textmanager.cpp
+
+)
+
+target_include_directories(qt-project
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries(qt-project

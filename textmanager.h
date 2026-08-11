@@ -7,7 +7,7 @@ class TextManager
 {
 public:
     TextManager();
-    static void WriteInFile(QString text);
+    static void WriteInFile(QString title, QString text);
     static QStringList getFiles();
 };
 
