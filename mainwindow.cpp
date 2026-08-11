@@ -59,7 +59,8 @@ void MainWindow::showNotes() {
 
     for(int i = 0; i < list.size(); i++)
     {
-        auto *button = new QPushButton(list[i], this);
+        QString buttonName = list[i];
+        auto *button = new QPushButton(buttonName.remove(".txt"), this);
         ui->verticalLayout_9->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{switchText(list[i]);});
     }
