@@ -23,5 +23,9 @@ private:
     void showNotes();
     void switchText(QString fileName);
 
+private slots:
+    void on_pushButton_5_clicked();
+    void editNote();
+
 };
 #endif // MAINWINDOW_H

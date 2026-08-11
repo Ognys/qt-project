@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->setTitleNote->setEnabled(false);
+    ui->plainTextEdit->setEnabled(false);
+
     auto switchPage = [this](int index) {
         ui->stackedWidget->setCurrentIndex(index);
     };
@@ -20,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pushButton_3, &QPushButton::clicked, this, &MainWindow::writeText);
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){if(index == 1) MainWindow::showNotes();});
+    connect(ui->checkBox, &QCheckBox::checkStateChanged, this, &MainWindow::editNote);
 
     ui->verticalLayout_9->setAlignment(Qt::AlignTop);
 }
@@ -64,4 +68,16 @@ void MainWindow::showNotes() {
         ui->verticalLayout_9->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{switchText(list[i]);});
     }
+}
+
+void MainWindow::on_pushButton_5_clicked() {
+    ui->setTitleNote->clear();
+    ui->plainTextEdit->clear();
+}
+
+void MainWindow::editNote() {
+    bool readOnly = ui->checkBox->isChecked();
+
+    ui->setTitleNote->setEnabled(readOnly);
+    ui->plainTextEdit->setEnabled(readOnly);
 }
