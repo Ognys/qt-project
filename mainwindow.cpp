@@ -47,6 +47,7 @@ void MainWindow::switchText(QString fileName) {
     }
 
     QString text = QString::fromUtf8(f.readAll());
+    ui->setTitleNote->setText(fileName.remove(".txt"));
     ui->plainTextEdit->setPlainText(text);
 }
 
@@ -68,6 +69,8 @@ void MainWindow::showNotes() {
         ui->verticalLayout_9->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{switchText(list[i]);});
     }
+
+    switchText(list[0]);
 }
 
 void MainWindow::on_pushButton_5_clicked() {
