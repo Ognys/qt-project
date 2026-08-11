@@ -20,6 +20,8 @@ public:
 private:
     Ui::MainWindow *ui;
     void writeText();
+    void showNotes();
+    void switchText(QString fileName);
 
 };
 #endif // MAINWINDOW_H
