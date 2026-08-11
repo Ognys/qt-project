@@ -19,6 +19,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void writeText();
 
 };
 #endif // MAINWINDOW_H

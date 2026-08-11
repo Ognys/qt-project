@@ -11,6 +11,7 @@ qt_add_executable(qt-project
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    textmanager.h textmanager.cpp
 )
 
 target_link_libraries(qt-project
