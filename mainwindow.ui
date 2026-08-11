@@ -15,6 +15,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <widget class="QWidget" name="page">
@@ -37,6 +40,9 @@
       </widget>
       <widget class="QWidget" name="page_2">
        <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
@@ -79,9 +85,8 @@
             <item>
              <widget class="QFrame" name="notesFrame">
               <property name="styleSheet">
-               <string notr="true">QFrame#notesFrame{
-	border: 1px solid gray;
-	border-radius: 6px;
+               <string notr="true">QFrame#notesFrame {
+	border: none;
 }</string>
               </property>
               <property name="frameShape">
@@ -91,8 +96,15 @@
                <enum>QFrame::Shadow::Raised</enum>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_10">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_9"/>
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                </layout>
                </item>
               </layout>
              </widget>

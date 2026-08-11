@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setTitleNote->setEnabled(false);
     ui->plainTextEdit->setEnabled(false);
+    ui->verticalLayout_9->setContentsMargins(0, 0, 0, 0);
 
     auto switchPage = [this](int index) {
         ui->stackedWidget->setCurrentIndex(index);
@@ -66,6 +67,32 @@ void MainWindow::showNotes() {
     {
         QString buttonName = list[i];
         auto *button = new QPushButton(buttonName.remove(".txt"), this);
+
+        button->setFixedSize(150, 50);
+
+        button->setStyleSheet(
+                "QPushButton {"
+                "    border: 1.3px solid gray;"
+                "    border-bottom: none;"
+                "    border-left: none;"
+                "}"
+                "QPushButton:hover {"
+                "    background-color: lightgray;"
+                "}"
+                );
+
+        if(i == list.size() - 1) {
+            button->setStyleSheet(
+                "QPushButton { border: 1.3px solid gray;"
+                "border-left: none;"
+                "}"
+                "QPushButton:hover {"
+                "    background-color: lightgray;"
+                "}"
+                );
+        }
+
+
         ui->verticalLayout_9->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{switchText(list[i]);});
     }
