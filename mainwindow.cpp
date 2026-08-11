@@ -6,17 +6,16 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    auto switchPage = [this](int index) {
+        ui->stackedWidget->setCurrentIndex(index);
+    };
+
+    connect(ui->pushButton, &QPushButton::clicked, this, [=]{switchPage(1);});
+    connect(ui->pushButton_2, &QPushButton::clicked, this, [=]{switchPage(0);});
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_pushButton_clicked() {
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::on_pushButton_2_clicked() {
-    ui->stackedWidget->setCurrentIndex(0);
 }
